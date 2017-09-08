@@ -337,6 +337,11 @@ public class Peripheral {
             }
         )
     }
+ 
+     public func readValueWithoutValueUpdating(for characteristic: Characteristic) -> Observable<Characteristic> {
+        self.peripheral.readValue(for: characteristic.characteristic)
+        return .just(characteristic)
+    }
 
     /**
      Function that triggers set of notification state of the `Characteristic`.
